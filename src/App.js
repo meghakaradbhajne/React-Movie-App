@@ -2,7 +2,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 function App() {
-  const [text,setText] =useState("search movie")
+  const [text,setText] =useState(" ")
 const [movie,setMovie]=useState([])
   const changeText =(event)=>{
    // console.log(event);
@@ -11,7 +11,7 @@ const [movie,setMovie]=useState([])
   }
   const getMovie =(e)=>{
     e.preventDefault();
-
+console.log(text, "system")
     axios.get(`http://www.omdbapi.com/?s=${text}&apikey=62cc94cb`)
     .then((response)=>{
       console.log(response);
@@ -47,7 +47,7 @@ const [movie,setMovie]=useState([])
 <div className="container my-3">
   <div className="row">
     {
-      movie.map((value,index) => {
+      movie && movie.map((value,index) => {
         return (
           <div className='col-3'>
      <div className="card" style={{width:"18rem"}}>
